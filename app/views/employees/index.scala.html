@@ -1,0 +1,34 @@
+@(books: Set[Employee])
+<!DOCTYPE html>
+
+<head>
+	<title>Employees</title>
+</head>
+
+<body>
+
+	<h1>All employees</h1>
+	
+	<form action="@routes.EmployeesController.create" method="get">
+            <button>Create new employee</button>
+    </form> 
+	
+	@for(book <- books) {
+	
+		<p>@book.getFirstName</p>
+		<p>@book.getLastName</p>
+		<p>@book.getJob</p>
+		<p>@book.getSalary</p>
+		<p>@book.getStartDate</p>
+		<form action="@routes.EmployeesController.edit(book.getId)" method="get">
+            <button>Edit employee</button>
+        </form> 
+        <form action="@routes.EmployeesController.delete(book.getId)" method="get">
+            <button>Delete employee</button>
+        </form> 
+	
+	}
+
+</body>
+
+</html>

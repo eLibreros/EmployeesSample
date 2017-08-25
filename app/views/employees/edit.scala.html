@@ -1,0 +1,25 @@
+@(employeeForm: Form[Employee])
+@import helper._
+<!DOCTYPE html>
+
+<head>
+	<title>Employees</title>
+</head>
+
+<body>
+
+	<h1>Edit employee</h1>
+	@helper.form(action = routes.EmployeesController.update()){
+		@helper.inputText(employeeForm("id"))
+		@helper.inputText(employeeForm("firstName"))
+		@helper.inputText(employeeForm("lastName"))
+		@helper.inputText(employeeForm("job"))
+		@helper.inputText(employeeForm("salary"))
+		@helper.inputText(employeeForm("startDate"))
+		
+		<input type="submit" value="Edit Employee"/>
+	}
+
+</body>
+
+</html>
